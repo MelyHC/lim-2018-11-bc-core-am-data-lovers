@@ -1,15 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-const CardPokemon = ({ num, name, img }) => {
+const CardPokemon = ({ num, name, img, updatePokemon }) => {
   return (
-    <Link to={`/${name}`} className="col-6 col-sm-3 col-lg-2 text-center mb-2 pr-2 pl-2">
-      <div className="card text-dark">
-        <img src={img} className="img-fluid m-2" />
-        <h4>{name}</h4>
+    <div className="col-6 col-sm-3 col-lg-2 text-center mb-2 mb-md-3 pr-2 pl-2 pr-md-3 pl-md-3">
+      <button onClick={()=> updatePokemon(name)} className="card text-dark">
+        <img src={img} alt={name} className="img-fluid m-2" />
+        <h5>{name}</h5>
         <b>{num}</b>
-      </div>
-    </Link>
+      </button>
+    </div>
   )
 }
 

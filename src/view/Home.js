@@ -7,7 +7,7 @@ const Home = ({ pokemons }) => {
     return (
       <Fragment>
         <header className="bg-danger text-white">
-          <h1 className="mb-2 pl-2">Pokedex</h1>
+          <h1 className="mb-2 mb-md-3 pl-2">Pokedex</h1>
         </header>
         <div className="row m-0 bg-light">
           {
