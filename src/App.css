@@ -19,3 +19,34 @@
 a:hover {
   text-decoration: none;
 }
+
+/* .pt-6 {
+  padding-top: 62px;
+} */
+
+.text-size {
+  font-size: 1.1em;
+}
+
+
+.arrow {
+  font-size: 1.9em;
+}
+
+.bg-light-grey {
+  background-color: rgb(155, 153, 153);
+}
+
+.fixed-bottom {
+  left: initial;
+}
+
+.icon {
+  font-size: 1.6em
+}
+
+@media screen and ( min-width : 768px ) {
+  .img-poke {
+    height: 40vh ;
+  }
+}

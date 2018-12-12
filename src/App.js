@@ -21,11 +21,7 @@ class App extends Component {
       return arrEvolution.push(obj);
     });
 
-  updateCurrentPokemon = (name, e) => {
-    e.preventDefault()
-    console.log(name)
-    // this.setState({ currentPokemon: name })
-  };
+  updateCurrentPokemon = (name) => this.setState({ currentPokemon: name });
 
   componentWillMount() {
     const arrPokemons = Object.values(pokemon.pokemon);
@@ -49,6 +45,8 @@ class App extends Component {
       };
 
       evolutions.push(dataActual);
+      evolutions.sort((a, b) => parseFloat(a.num) - parseFloat(b.num))
+
       const dataPoke = {
         name: poke.name,
         num: poke.num,
@@ -70,7 +68,7 @@ class App extends Component {
 
   render() {
     const { pokemons, currentPokemon } = this.state;
-    console.log(currentPokemon)
+    
     return (
       <Router>
         <Switch>
