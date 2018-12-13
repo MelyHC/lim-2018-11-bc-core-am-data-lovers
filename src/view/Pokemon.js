@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Pokemon = ({ pokemons, pokeActual }) => {
   const pokemon = pokemons.filter(objPoke => objPoke.name === pokeActual)[0];
-  console.log(pokemon)
+
   return (
     <Fragment>
       <Link to="/lim-2018-11-bc-core-am-data-lovers" className="fas fa-angle-left arrow position-fixed text-primary m-2 ml-md-4 px-2 py-1"></Link>
