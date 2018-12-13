@@ -20,10 +20,6 @@ a:hover {
   text-decoration: none;
 }
 
-/* .pt-6 {
-  padding-top: 62px;
-} */
-
 .text-size {
   font-size: 1.1em;
 }
@@ -33,8 +29,8 @@ a:hover {
   font-size: 1.9em;
 }
 
-.bg-light-grey {
-  background-color: rgb(155, 153, 153);
+.arrow-orientation {
+  transform: rotate(90deg) ;
 }
 
 .fixed-bottom {
@@ -42,7 +38,75 @@ a:hover {
 }
 
 .icon {
-  font-size: 1.6em
+  font-size: 1.3em
+}
+
+.badge-size {
+  font-size: 0.8em;
+}
+
+.badge-Grass {
+  background-color: rgb(2, 187, 2);
+}
+
+.badge-Poison {
+  background-color: blueviolet;
+}
+
+.badge-Fire {
+  background-color: red;
+}
+
+.badge-Flying {
+  background-color: cornflowerblue;
+}
+
+.badge-Water {
+  background-color: dodgerblue;
+}
+
+.badge-Bug {
+  background-color: darkgreen;
+}
+
+.badge-Normal {
+  background-color: grey;
+}
+
+.badge-Electric {
+  background-color: rgb(255, 208, 0);
+}
+
+.badge-Ground {
+  background-color: peru;
+}
+
+.badge-Fighting {
+  background-color: maroon;
+}
+
+.badge-Psychic {
+  background-color: magenta;
+}
+
+.badge-Rock {
+  background-color: rgb(218, 176, 121);
+}
+
+.badge-Ice {
+  background-color: darkturquoise;
+}
+
+.badge-Ghost {
+  background-color: violet;
+}
+
+.badge-Dragon {
+  background-color: mediumslateblue;
+}
+
+.badge-Dark {
+  background-color: #535353;
 }
 
 @media screen and ( min-width : 768px ) {

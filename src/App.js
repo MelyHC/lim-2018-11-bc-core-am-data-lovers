@@ -9,6 +9,11 @@ class App extends Component {
   state = {
     pokemons: [],
     currentPokemon: '',
+    option: {
+      order: 'ASC',
+      type: [],
+      filter: 'num'
+    }
   }
 
   evolutionsPokemon = (evolution, arrActual, arrEvolution) =>
@@ -22,6 +27,46 @@ class App extends Component {
     });
 
   updateCurrentPokemon = (name) => this.setState({ currentPokemon: name });
+
+  filterOption = (e) => {
+    const { pokemons, option: { order, type, filter } } = this.state;
+    e.preventDefault();
+
+    const sortPokemon = pokemons.sort((a, b) =>
+      e.target.name === 'name' || filter === 'name' ? a.name.localeCompare(b.name)
+        : e.target.name === 'num' || filter === 'num' ? parseFloat(a.num) - parseFloat(b.num)
+          : null
+    );
+
+    if (e.target.name === 'type') {
+      type.find(typePoke => typePoke === e.target.value ?
+        typePoke.remove()
+        : type.push(e.target.value)
+      )
+      console.log(type.length)
+      sortPokemon.filter(({ type }) => filter.length !== 0 ?
+        filter.map(typePoke => type === typePoke)
+        : null)
+    }
+
+    console.log(order.length)
+
+    if (e.target.name === 'order' || order.length !== 0) {
+      sortPokemon.reverse();
+    }
+
+    this.setState({
+      pokemons,
+      option: {
+        filter,
+        order: e.target.name === 'order' ? e.target.value === 'DESC' ? 'ASC' : 'DESC' : order,
+        type
+      }
+    })
+    // const filterPokemon = sortPokemon.filter
+    console.log(e.target.name)
+    console.log(sortPokemon)
+  }
 
   componentWillMount() {
     const arrPokemons = Object.values(pokemon.pokemon);
@@ -38,15 +83,6 @@ class App extends Component {
         this.evolutionsPokemon(nextEvo, arrPokemons, evolutions);
       };
 
-      const dataActual = {
-        name: poke.name,
-        num: poke.num,
-        img: poke.img
-      };
-
-      evolutions.push(dataActual);
-      evolutions.sort((a, b) => parseFloat(a.num) - parseFloat(b.num))
-
       const dataPoke = {
         name: poke.name,
         num: poke.num,
@@ -58,24 +94,26 @@ class App extends Component {
         evolutions
       };
 
+      evolutions.push(dataPoke);
+      evolutions.sort((a, b) => parseFloat(a.num) - parseFloat(b.num))
+
       if (poke.hasOwnProperty('candy_count')) dataPoke.candyCount = poke['candy_count'];
       return dataPoke;
     })
 
     this.setState({ pokemons: dataPokemon })
-    // console.log(dataPokemon)
   }
 
   render() {
-    const { pokemons, currentPokemon } = this.state;
-    
+    const { pokemons, currentPokemon, option: { order } } = this.state;
+
     return (
       <Router>
         <Switch>
           <Route
             path='/lim-2018-11-bc-core-am-data-lovers'
             exact
-            render={() => <Home pokemons={pokemons} updatePokemon={this.updateCurrentPokemon} />}
+            render={() => <Home pokemons={pokemons} updatePokemon={this.updateCurrentPokemon} filterOption={this.filterOption} order={order} />}
           />
           <Route
             path={`/${currentPokemon}`}
