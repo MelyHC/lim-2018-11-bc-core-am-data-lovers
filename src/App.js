@@ -13,7 +13,8 @@ class App extends Component {
       order: 'ASC',
       kind: [],
       orderBy: 'num'
-    }
+    },
+    allPokemons: []
   }
 
   evolutionsPokemon = (evolution, arrActual, arrEvolution) =>
@@ -29,10 +30,10 @@ class App extends Component {
   updateCurrentPokemon = (name) => this.setState({ currentPokemon: name });
 
   filterOption = (e) => {
-    const { pokemons, option: { order, kind, orderBy } } = this.state;
+    const { pokemons, option: { order, kind, orderBy }, allPokemons } = this.state;
     e.preventDefault();
 
-    const sortPokemon = pokemons.sort((a, b) =>
+    let sortedPokemon = pokemons.sort((a, b) =>
       e.target.name === 'name' ? a.name.localeCompare(b.name)
         : e.target.name === 'num' ? parseFloat(a.num) - parseFloat(b.num)
           : null
@@ -45,36 +46,38 @@ class App extends Component {
           kind.splice(i, 1) : null);
       else kind.push(e.target.value);
 
-      console.log(kind, e.target.value, sortPokemon)
+      const countFilterPoke = [];
 
       if (kind.length !== 0) {
-        sortPokemon.filter(objPoke => {
-          const countFilterPoke = [];
 
+        sortedPokemon.forEach(objPoke =>
           objPoke.type.forEach(typePoke =>
             kind.forEach(kindPoke => typePoke === kindPoke ?
-              countFilterPoke.push(objPoke) : null
+              countFilterPoke.find(filterpoke => filterpoke === objPoke) ?
+                null :
+                countFilterPoke.push(objPoke) : null
             )
           )
-          console.log(countFilterPoke)
-          return countFilterPoke.length !== 0 ? countFilterPoke : objPoke;
-        })
+        )
+
       }
+
+      sortedPokemon = countFilterPoke.length !== 0 ? countFilterPoke : allPokemons;
     }
 
-    if (e.target.name === 'order' || order === 'DESC') sortPokemon.reverse();
+    if (e.target.name === 'order' || order === 'DESC') sortedPokemon.reverse();
 
     this.setState({
-      pokemons,
+      pokemons: sortedPokemon,
       option: {
         orderBy: e.target.name === 'name' || e.target.name === 'num' ? e.target.name : orderBy,
         order: e.target.name === 'order' ? e.target.value === 'DESC' ? 'ASC' : 'DESC' : order,
         kind
       }
     })
-    // const filterPokemon = sortPokemon.filter
+    // const filterPokemon = sortedPokemon.filter
     console.log(e.target.name)
-    console.log(sortPokemon)
+    console.log(sortedPokemon)
   }
 
   componentWillMount() {
@@ -93,7 +96,7 @@ class App extends Component {
       };
 
       const dataPoke = {
-        name: poke.name,
+        name: poke.name.split(' ')[0],
         num: poke.num,
         img: poke.img,
         id: poke.id,
@@ -110,7 +113,10 @@ class App extends Component {
       return dataPoke;
     })
 
-    this.setState({ pokemons: dataPokemon })
+    this.setState({
+      pokemons: dataPokemon,
+      allPokemons: dataPokemon
+    })
   }
 
   render() {
