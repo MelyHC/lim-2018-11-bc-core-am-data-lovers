@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-const Pokemon = ({ pokemons, pokeActual }) => {
+const Pokemon = ({ pokemons, pokeActual, updatePokemon }) => {
   const pokemon = pokemons.filter(objPoke => objPoke.name === pokeActual)[0];
 
   return (
     <Fragment>
-      <Link to="/lim-2018-11-bc-core-am-data-lovers" className="fas fa-angle-left arrow position-fixed text-primary m-2 ml-md-4 px-2 py-1"></Link>
+      <Link to="/lim-2018-11-bc-core-am-data-lovers" className="fas fa-angle-left arrow position-absolute text-primary m-2 ml-md-4 px-2 py-1"></Link>
       <h2 className="text-center">{pokemon.name}</h2>
       <section className="row m-0">
         <figure className="col-md-6 d-flex justify-content-center align-items-center">
@@ -46,9 +46,11 @@ const Pokemon = ({ pokemons, pokeActual }) => {
           {
             pokemon.evolutions.map(({ img, name, num }) =>
               <div className="col" key={name}>
-                <img src={img} alt={name} />
-                <h6>{name}</h6>
-                <span># {num}</span>
+                <Link to={`/${name}`} onClick={() => updatePokemon(name)} className="text-dark">
+                  <img src={img} alt={name} />
+                  <h6>{name}</h6>
+                  <span># {num}</span>
+                </Link>
               </div>
             )
           }

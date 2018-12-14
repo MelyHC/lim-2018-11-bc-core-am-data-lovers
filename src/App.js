@@ -44,24 +44,13 @@ class App extends Component {
       if (kind.find(typePoke => typePoke === e.target.value))
         kind.map((typePoke, i) => typePoke === e.target.value ?
           kind.splice(i, 1) : null);
-      else kind.push(e.target.value);
+      else kind.splice(0, 1, e.target.value);
 
-      const countFilterPoke = [];
+      let countFilterPoke = [];
 
       if (kind.length !== 0) {
-
-        sortedPokemon.forEach(objPoke =>
-          objPoke.type.forEach(typePoke =>
-            kind.forEach(kindPoke => typePoke === kindPoke ?
-              countFilterPoke.find(filterpoke => filterpoke === objPoke) ?
-                null :
-                countFilterPoke.push(objPoke) : null
-            )
-          )
-        )
-
+        countFilterPoke = allPokemons.filter(({ type }) => type.toString().includes(kind.toString()))
       }
-
       sortedPokemon = countFilterPoke.length !== 0 ? countFilterPoke : allPokemons;
     }
 
@@ -75,9 +64,6 @@ class App extends Component {
         kind
       }
     })
-    // const filterPokemon = sortedPokemon.filter
-    console.log(e.target.name)
-    console.log(sortedPokemon)
   }
 
   componentWillMount() {
@@ -133,7 +119,7 @@ class App extends Component {
           <Route
             path={`/${currentPokemon}`}
             exact
-            render={() => <Pokemon pokemons={pokemons} pokeActual={currentPokemon} />}
+            render={() => <Pokemon pokemons={pokemons} pokeActual={currentPokemon} updatePokemon={this.updateCurrentPokemon} />}
           />
         </Switch>
       </Router>

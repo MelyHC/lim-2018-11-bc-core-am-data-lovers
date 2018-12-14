@@ -24,7 +24,6 @@ a:hover {
   font-size: 1.1em;
 }
 
-
 .arrow {
   font-size: 1.9em;
 }
@@ -74,7 +73,7 @@ a:hover {
 }
 
 .badge-Electric {
-  background-color: rgb(255, 208, 0);
+  background-color: rgb(255, 187, 0);
 }
 
 .badge-Ground {
@@ -90,7 +89,7 @@ a:hover {
 }
 
 .badge-Rock {
-  background-color: rgb(218, 176, 121);
+  background-color: rgb(148, 116, 75);
 }
 
 .badge-Ice {
