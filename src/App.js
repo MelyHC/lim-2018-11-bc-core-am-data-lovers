@@ -82,7 +82,7 @@ class App extends Component {
       };
 
       const dataPoke = {
-        name: poke.name.split(' ')[0],
+        name: poke.name,
         num: poke.num,
         img: poke.img,
         id: poke.id,
