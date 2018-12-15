@@ -12,8 +12,8 @@ const Home = ({ pokemons, updatePokemon, filterOption, order }) => {
         </header>
         <div className="row m-0 pt-6">
           {
-            pokemons.map(({ id, name, img }) =>
-              <CardPokemon key={id} name={name} img={img} updatePokemon={updatePokemon} />
+            pokemons.map(({ id, name, img, num }) =>
+              <CardPokemon key={id} name={name} img={img} updatePokemon={updatePokemon} num={num} />
             )}
         </div>
         <div className="btn-group dropup">
