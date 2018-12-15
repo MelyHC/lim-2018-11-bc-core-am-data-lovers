@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import CardPokemon from '../component/CardPokemon';
 
 const Home = ({ pokemons, updatePokemon, filterOption, order }) => {
-  const arrTypes = ['Grass', 'Poison', 'Fire', 'Flying', 'Water', 'Bug', 'Normal', 'Electric', 'Ground', 'Fighting', 'Psychic', 'Rock', 'Ice', 'Ghost', 'Dragon']
+  const arrTypes = ['Grass', 'Poison', 'Fire', 'Normal', 'Water', 'Ghost', 'Ground', 'Bug', 'Electric', 'Steel', 'Fighting', 'Ice', 'Psychic', 'Rock', 'Flying',  'Fairy', 'Dragon']
 
   if (pokemons.length) {
     return (
@@ -18,14 +18,14 @@ const Home = ({ pokemons, updatePokemon, filterOption, order }) => {
         </div>
         <div className="btn-group dropup">
           <button className="fas fa-filter fixed-bottom m-2 m-md-3 p-3 icon bg-primary text-white text-right rounded-circle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-          <form className="dropdown-menu" onClick={filterOption}>
+          <form className="dropdown-menu border-dark p-0" onClick={filterOption}>
             <button className="dropdown-item" type="button" name="name" arial-label="Ordenar por nombre">Nombre</button>
             <button className="dropdown-item" type="button" name="num" arial-label="Ordenar por número en la pokedex">N° en la pokedex</button>
             <button className="dropdown-item" type="button" name="order" value={order} arial-label="Orden"><i className="fas fa-exchange-alt arrow-orientation"></i> {order}</button>
-            <hr className="dropdown-divider" />
-            <span className="dropdown-item">Tipo:</span>
-            <div className="px-3 py-1">
-              {arrTypes.map(type => <button className={`btn badge badge-pill badge-${type} badge-size text-white mx-1`} value={`${type}`} name="type" key={type}>{type}</button>)}
+            <hr className="dropdown-divider border-dark" />
+            <span className="dropdown-item py-0">Tipo:</span>
+            <div className="px-3 pb-2">
+              {arrTypes.map(type => <button className={`btn badge badge-pill badge-${type} badge-size text-white mx-1 mb-1`} value={`${type}`} name="type" key={type}>{type}</button>)}
             </div>
           </form>
         </div>
