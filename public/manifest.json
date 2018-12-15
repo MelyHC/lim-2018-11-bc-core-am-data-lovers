@@ -1,15 +1,114 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pokedex",
+  "name": "Pokedex",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "./img/icons/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "./img/icons/9762bee5-53f3-7b12-30dc-a932cacf7789.webPlatform.png",
+      "sizes": "44x44",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/7d83bd12-977e-1e60-2c2b-33aad1590626.webPlatform.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/836e61ba-6866-d3d3-516d-1216a6f7c26b.webPlatform.png",
+      "sizes": "1240x600",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/78f0cccf-3b3d-d249-1c64-acadd0c32eab.webPlatform.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/6c453a18-8824-661c-066f-20ce96627afb.webPlatform.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/da9b3879-1f4b-c312-389e-49c1539cbc60.webPlatform.png",
+      "sizes": "88x88",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/d658a36e-744f-52db-e730-fc13e7034a0a.webPlatform.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/0c762060-96aa-b18f-ada5-a06d68edc0dd.webPlatform.png",
+      "sizes": "50x50",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/6c6b49fc-3eb1-db6c-ba85-83da96eaabfd.webPlatform.png",
+      "sizes": "620x300",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/d0fb0c3a-c1a1-3afb-b5e1-9a3e823aeaeb.webPlatform.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/c3cf6688-e1ea-2be5-c9f8-6d508d573561.webPlatform.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/4b08d66d-2d1f-140c-5a15-0fdde7c7b462.webPlatform.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/120b25b6-a7bd-686b-deeb-0e61137ea4a4.webPlatform.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/8b61c3b0-8f2b-8ff8-f69a-8dea3d06725a.webPlatform.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/88efc906-8399-9770-7ff1-f5e136c80515.webPlatform.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/d457c983-d223-f022-4083-63ffbfdec213.webPlatform.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/a1a5c317-907d-df20-bdf8-61bd715990bf.webPlatform.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/1db6c4bb-eb4a-24f0-2bbf-4a34f0c67d91.webPlatform.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icons/cc93ac34-1d74-0b0a-ddfe-8b9f3ce5d485.webPlatform.png",
+      "sizes": "76x76",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://melyhc.github.io/lim-2018-11-bc-core-am-data-lovers/?utm_source=web_app_manifest",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "lang": "Spanish; Castilian", 
+  "orientation": "portrait",
+  "description": "Pokedex que nuestra los primeros 150 pokemons y su descripción",
+  "scope": "./"
 }
