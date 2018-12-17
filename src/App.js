@@ -106,7 +106,7 @@ class App extends Component {
   }
 
   render() {
-    const { pokemons, currentPokemon, option: { order } } = this.state;
+    const { pokemons, currentPokemon, option: { order }, allPokemons } = this.state;
 
     return (
       <Router>
@@ -119,7 +119,7 @@ class App extends Component {
           <Route
             path={`/${currentPokemon}`}
             exact
-            render={() => <Pokemon pokemons={pokemons} pokeActual={currentPokemon} updatePokemon={this.updateCurrentPokemon} />}
+            render={() => <Pokemon pokemons={allPokemons} pokeActual={currentPokemon} updatePokemon={this.updateCurrentPokemon} />}
           />
         </Switch>
       </Router>
