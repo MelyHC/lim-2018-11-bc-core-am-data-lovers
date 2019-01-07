@@ -29,6 +29,8 @@ class App extends Component {
 
   updateCurrentPokemon = (name) => this.setState({ currentPokemon: name });
 
+  viewTopPage = () => window.scroll(0, 0);
+
   filterOption = (e) => {
     const { pokemons, option: { order, kind, orderBy }, allPokemons } = this.state;
     e.preventDefault();
@@ -114,12 +116,12 @@ class App extends Component {
           <Route
             path='/lim-2018-11-bc-core-am-data-lovers'
             exact
-            render={() => <Home pokemons={pokemons} updatePokemon={this.updateCurrentPokemon} filterOption={this.filterOption} order={order} />}
+            render={() => <Home pokemons={pokemons} updatePokemon={this.updateCurrentPokemon} filterOption={this.filterOption} order={order} topPage={this.viewTopPage} />}
           />
           <Route
             path={`/${currentPokemon}`}
             exact
-            render={() => <Pokemon pokemons={allPokemons} pokeActual={currentPokemon} updatePokemon={this.updateCurrentPokemon} />}
+            render={() => <Pokemon pokemons={allPokemons} pokeActual={currentPokemon} updatePokemon={this.updateCurrentPokemon} topPage={this.viewTopPage} />}
           />
         </Switch>
       </Router>

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-const Pokemon = ({ pokemons, pokeActual, updatePokemon }) => {
+const Pokemon = ({ pokemons, pokeActual, updatePokemon, topPage }) => {
   const pokemon = pokemons.filter(objPoke => parseFloat(objPoke.num) === parseFloat(pokeActual))[0];
 
   return (
@@ -46,7 +46,7 @@ const Pokemon = ({ pokemons, pokeActual, updatePokemon }) => {
           {
             pokemon.evolutions.map(({ img, name, num }) =>
               <div className="col p-2" key={name}>
-                <Link to={`/${num}`} onClick={() => updatePokemon(num)} className="text-dark">
+                <Link to={`/${num}`} onClick={() => { updatePokemon(num); topPage(); }} className="text-dark">
                   <img src={img} alt={name} />
                   <h6>{name}</h6>
                   <span># {num}</span>

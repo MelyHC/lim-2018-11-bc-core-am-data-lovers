@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import CardPokemon from '../component/CardPokemon';
 
-const Home = ({ pokemons, updatePokemon, filterOption, order }) => {
-  const arrTypes = ['Grass', 'Poison', 'Fire', 'Normal', 'Water', 'Ghost', 'Ground', 'Bug', 'Electric', 'Steel', 'Fighting', 'Ice', 'Psychic', 'Rock', 'Flying',  'Fairy', 'Dragon']
+const Home = ({ pokemons, updatePokemon, filterOption, order, topPage }) => {
+  const arrTypes = ['Grass', 'Poison', 'Fire', 'Normal', 'Water', 'Ghost', 'Ground', 'Bug', 'Electric', 'Steel', 'Fighting', 'Ice', 'Psychic', 'Rock', 'Flying', 'Fairy', 'Dragon']
 
   if (pokemons.length) {
     return (
@@ -13,7 +13,7 @@ const Home = ({ pokemons, updatePokemon, filterOption, order }) => {
         <div className="row m-0 pt-6">
           {
             pokemons.map(({ id, name, img, num }) =>
-              <CardPokemon key={id} name={name} img={img} updatePokemon={updatePokemon} num={num} />
+              <CardPokemon key={id} name={name} img={img} updatePokemon={updatePokemon} num={num} topPage={topPage} />
             )}
         </div>
         <div className="btn-group dropup">
