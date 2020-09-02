@@ -6,7 +6,7 @@ const Pokemon = ({ pokemons, pokeActual, updatePokemon, topPage }) => {
 
   return (
     <Fragment>
-      <Link to="/lim-2018-11-bc-core-am-data-lovers" className="fas fa-angle-left arrow fixed-top text-primary m-2 ml-md-4 px-2 py-1"></Link>
+      <Link to="/" className="fas fa-angle-left arrow fixed-top text-primary m-2 ml-md-4 px-2 py-1"></Link>
       <h2 className="text-center mt-2">{pokemon.name}</h2>
       <section className="row m-0">
         <figure className="col-md-6 d-flex justify-content-center align-items-center">

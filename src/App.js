@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import pokemon from './data/pokemon/pokemon.json';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
 import Home from './view/Home';
 import Pokemon from './view/Pokemon';
 
@@ -68,7 +68,12 @@ class App extends Component {
     })
   }
 
-  componentWillMount() {
+  componentDidMount() {
+
+    const pathName = this.props.location.pathname;
+    const numPokemon = pathName.split('/')[2];
+    if (numPokemon) this.updateCurrentPokemon(numPokemon);
+
     const arrPokemons = Object.values(pokemon.pokemon);
     const dataPokemon = arrPokemons.map(poke => {
       const evolutions = [];
@@ -111,10 +116,10 @@ class App extends Component {
     const { pokemons, currentPokemon, option: { order }, allPokemons } = this.state;
 
     return (
-      <Router>
+      <Router basename='lim-2018-11-bc-core-am-data-lovers'>
         <Switch>
           <Route
-            path='/lim-2018-11-bc-core-am-data-lovers'
+            path='/'
             exact
             render={() => <Home pokemons={pokemons} updatePokemon={this.updateCurrentPokemon} filterOption={this.filterOption} order={order} topPage={this.viewTopPage} />}
           />
@@ -129,4 +134,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
